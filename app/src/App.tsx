@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { EmployeeState } from './TYPES';
 import { fetchAllEmployees, fetchOneEmployee } from './API/API';
 import EmployeeList from './components/EmployeeList';
-import { render } from '@testing-library/react';
+import './App.css';
 
 const App = () => {
   const [employees, setEmployees] = useState<EmployeeState[]>([]);
@@ -12,7 +12,6 @@ const App = () => {
   let employeeRef: React.RefObject<HTMLInputElement> = React.createRef();
 
   const initValues = async () => {
-
     if (employeeRef.current?.value) {
       try {
         const employeeToLoad = await fetchOneEmployee(Number.parseInt(employeeRef.current.value));
@@ -39,15 +38,18 @@ const App = () => {
 
   return (
     <div className="App">
-      <input type="number" placeholder="Employee ID" ref={employeeRef} />
-      <button className="Start" onClick={initValues}>Get Employee(s)</button>
-
-      {
-        (amount > 0 && !error) && <EmployeeList employees = {employees} />
-      }
-
-      { error && <p>Can't show this content at the moment, try again!</p> }
-
+      <div className="AppHeader">
+        <input type="number" onKeyPress={(event) => {
+          if (!/[0-9]/.test(event.key)) {
+            event.preventDefault();
+          }
+        }} className="input" placeholder="Employee ID" ref={employeeRef} />
+        <button className="button" onClick={initValues}>Get Employee(s)</button>
+      </div>
+      <div className="AppBody">
+        { (amount > 0 && !error) && <EmployeeList employees = {employees} /> }
+        { error && <p>Can't show this content at the moment, try again!</p> }
+      </div>
     </div>
   )
 }

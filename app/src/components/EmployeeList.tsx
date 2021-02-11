@@ -1,5 +1,5 @@
 import React from 'react';
-import Employee from '../interfaces/Employee.interface';
+import './EmployeeList.css';
 
 type Props = {
     employees: any[]
@@ -11,7 +11,7 @@ const EmployeeList: React.FC<Props> = (
     }
 ) => (
     <div>
-        <table>
+        <table className="table">
             <thead>
                 <tr>
                     <th>ID</th>

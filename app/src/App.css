@@ -1,0 +1,44 @@
+.App {
+    text-align: center;
+}
+
+.AppHeader {
+    min-height: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.AppBody {
+    min-height: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(1px + 2vmin);
+    color: #62529c;
+}
+
+.input {
+    appearance: textfield;
+    text-align: center;
+    border: 1px solid #62529c;
+    color: #62529c;
+    padding: 15px 30px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: text;
+}
+
+.button {
+    background-color: #62529c;
+    border: none;
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
